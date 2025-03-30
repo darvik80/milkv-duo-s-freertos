@@ -1,4 +1,4 @@
-file(GLOB _SOURCES "src/*.c" "*.S")
+file(GLOB _SOURCES "src/*.c" "*.S" "src/main.cpp")
 
 # try to find out the include folder recursively under CMAKE_INSTALL_PREFIX folder
 MACRO(HEADER_DIRECTORIES return_list)
@@ -21,13 +21,13 @@ include_directories(${header_dir_list})
 #if (CONFIG_FAST_IMAGE_TYPE STRGREATER "0")
 #    set(CVI_TASK_LIBS comm isp vi vcodec rgn audio camera)
 #else()
-    set(CVI_TASK_LIBS comm rgn_main audio arch common commonl kernel hal driver)
+    set(CVI_TASK_LIBS comm rgn_main audio arch common commonl kernel hal driver arduino)
 #endif()
 
 set(LINKER_SCRIPT "${TOP_DIR}/scripts/${RUN_CHIP}_lscript.ld")
 set(EXTRA_LIBS ${EXTRA_LIBS} "-L${BUILD_ENV_PATH}/output/$ENV{PROJECT_FULLNAME}")
 set(EXTRA_LIBS ${EXTRA_LIBS} "-L${TOP_DIR}/task/audio/" audio)
-set(EXTRA_LIBS ${EXTRA_LIBS} m c gcc sim)
+set(EXTRA_LIBS ${EXTRA_LIBS} m c gcc sim stdc++)
 set(CMAKE_EXE_LINKER_FLAGS -T${LINKER_SCRIPT} )
 set(BUILD_SHARED_LIBS OFF)
 

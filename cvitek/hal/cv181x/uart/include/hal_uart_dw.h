@@ -60,14 +60,14 @@ struct dw_regs {
 #define UART_FCR_DEFVAL (UART_FCR_FIFO_EN | UART_FCR_RXSR | UART_FCR_TXSR)
 #define UART_LCR_8N1 0x03
 
-typedef enum DEV_UART device_uart;
-
 enum DEV_UART{
 	UART0,
 	UART1,
 	UART2,
 	UART3,
 };
+
+typedef enum DEV_UART device_uart;
 
 void hal_uart_init(device_uart dev_uart, int baudrate, int uart_clock);
 void hal_uart_putc(uint8_t ch);

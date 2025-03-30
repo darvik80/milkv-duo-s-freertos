@@ -55,3 +55,14 @@ set( CMAKE_ASM_FLAGS "${CMAKE_C_FLAGS}" CACHE STRING "" )
 
 set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-missing-field-initializers" )
 set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-parentheses" )
+
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=rv64imafdc" )
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mabi=lp64d" )
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ffunction-sections" )
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fdata-sections" )
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-builtin" )
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -nostdlib" )
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mcmodel=medany" )
+
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DFREERTOS_BSP" )
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DLINUX_BSP_64MB" )

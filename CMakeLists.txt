@@ -26,7 +26,7 @@ set(TOP_DIR ${CVITEK})
 set(BUILD_TOOLS ${CMAKE_SOURCE_DIR}/tools)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${SAFETY_FLAGS} -D${RUN_TYPE}")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${SAFETY_FLAGS}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${SAFETY_FLAGS} -D${RUN_TYPE} ")
 
 include(${CMAKE_SOURCE_DIR}/cvitek/scripts/ParseConfiguration.cmake)
 ParseConfiguration("${CMAKE_SOURCE_DIR}/.config")
@@ -44,10 +44,14 @@ include_directories(
         ${CVITEK}/driver/jenc/include
         ${CVITEK}/driver/rtos_cmdqu/include
         ${CVITEK}/driver/fast_image/include
+        ${CVITEK}/driver/uart/include
         ${CVITEK}/driver/rgn/common/include
         ${CVITEK}/hal/${RUN_CHIP}/config
         ${CVITEK}/hal/${RUN_CHIP}/uart/include
         ${CVITEK}/hal/${RUN_CHIP}/pinmux/include
+        arduion/src
+        arduion/src/duos
+
 )
 
 add_subdirectory(cvitek/arch)
@@ -56,6 +60,7 @@ add_subdirectory(cvitek/common)
 add_subdirectory(cvitek/hal/cv181x)
 add_subdirectory(cvitek/driver)
 add_subdirectory(cvitek/task)
+add_subdirectory(arduion)
 
 set(RTOS ${CMAKE_BINARY_DIR}/cvitek/task/main/cvirtos.bin)
 set(RTOS_ELF ${CMAKE_BINARY_DIR}/cvitek/task/main/cvirtos.elf)
