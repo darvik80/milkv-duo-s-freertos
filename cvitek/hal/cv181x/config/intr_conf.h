@@ -119,7 +119,6 @@ typedef int (*irq_handler_t)(int irqn, void *priv);
 int request_irq(int irqn, irq_handler_t handler,
 		       unsigned long flags, const char *name, void *priv);
 
-/*
 void disable_irq(unsigned int irqn);
 void enable_irq(unsigned int irqn);
 
@@ -130,7 +129,6 @@ extern void irq_trigger(int irqn);
 extern void irq_clear(int irqn);
 extern int irq_get_nums(void);
 void pinmux_config(int io_type);
-*/
 /*FIXME
  * NUM_IRQ may be different accross
  * different platform, we should review it when porting

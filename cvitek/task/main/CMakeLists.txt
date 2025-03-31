@@ -18,11 +18,7 @@ list(LENGTH header_dir_list header_dir_list_count)
 include_directories(include)
 include_directories(${header_dir_list})
 
-#if (CONFIG_FAST_IMAGE_TYPE STRGREATER "0")
-#    set(CVI_TASK_LIBS comm isp vi vcodec rgn audio camera)
-#else()
-    set(CVI_TASK_LIBS comm rgn_main audio arch common commonl kernel hal driver arduino)
-#endif()
+set(CVI_TASK_LIBS comm rgn_main audio arch common commonl kernel hal driver cvitek_extra)
 
 set(LINKER_SCRIPT "${TOP_DIR}/scripts/${RUN_CHIP}_lscript.ld")
 set(EXTRA_LIBS ${EXTRA_LIBS} "-L${BUILD_ENV_PATH}/output/$ENV{PROJECT_FULLNAME}")

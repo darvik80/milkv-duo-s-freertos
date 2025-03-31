@@ -1,7 +1,7 @@
 /* Standard includes. */
 #include <stdio.h>
-#include <bsp/csi/csi_pin.h>
-#include <bsp/hal/dw/dw_uart_ll.h>
+#include <csi_pin.h>
+#include <dw_uart_ll.h>
 
 extern "C" {
 #include "dump_uart.h"
@@ -18,7 +18,7 @@ void main_cvirtos(void);
 extern dev_pin_map_t uart_rx_map[];
 extern dev_pin_map_t uart_tx_map[];
 
-#include "bsp/csi/csi_uart.h"
+#include "csi_uart.h"
 
 csi_uart_t _uart;
 

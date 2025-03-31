@@ -22,6 +22,7 @@ set(CMAKE_INSTALL_INC_PREFIX ${CMAKE_SOURCE_DIR}/cvitek/install/include)
 set(KERNEL_SOURCE ${CMAKE_SOURCE_DIR}/Source)
 set(TRACE_SOURCE ${CMAKE_SOURCE_DIR}/Tracealyzer)
 set(CVITEK ${CMAKE_SOURCE_DIR}/cvitek)
+set(CVITEK_EXTRA ${CMAKE_SOURCE_DIR}/cvitek_extra)
 set(TOP_DIR ${CVITEK})
 set(BUILD_TOOLS ${CMAKE_SOURCE_DIR}/tools)
 
@@ -49,9 +50,12 @@ include_directories(
         ${CVITEK}/hal/${RUN_CHIP}/config
         ${CVITEK}/hal/${RUN_CHIP}/uart/include
         ${CVITEK}/hal/${RUN_CHIP}/pinmux/include
-        arduion/src
-        arduion/src/duos
-
+        ${CVITEK_EXTRA}/include
+        ${CVITEK_EXTRA}/include/csi
+        ${CVITEK_EXTRA}/include/cvi
+        ${CVITEK_EXTRA}/include/hal
+        ${CVITEK_EXTRA}/include/hal/dw
+        ${CVITEK_EXTRA}/src/variants/duos
 )
 
 add_subdirectory(cvitek/arch)
@@ -60,7 +64,7 @@ add_subdirectory(cvitek/common)
 add_subdirectory(cvitek/hal/cv181x)
 add_subdirectory(cvitek/driver)
 add_subdirectory(cvitek/task)
-add_subdirectory(arduion)
+add_subdirectory(cvitek_extra)
 
 set(RTOS ${CMAKE_BINARY_DIR}/cvitek/task/main/cvirtos.bin)
 set(RTOS_ELF ${CMAKE_BINARY_DIR}/cvitek/task/main/cvirtos.elf)

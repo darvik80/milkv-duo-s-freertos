@@ -1,8 +1,8 @@
 /* Standard includes. */
 #include <hal_uart_dw.h>
 #include <stdio.h>
-#include <bsp/csi/csi_pin.h>
-#include <duos/variant_pins.h>
+#include <csi_pin.h>
+#include <variant_pins.h>
 
 #include "FreeRTOS.h"
 #include "task.h"
